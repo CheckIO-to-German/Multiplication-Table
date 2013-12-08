@@ -8,8 +8,62 @@
         box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
         -moz-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
         -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
+    }
+
+    .t-example {
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+
+    .t-example tr:first-child td{
+        border-bottom: solid #294270 2px;
+    }
+
+    .t-example tr:last-child td {
+        border-top: solid #294270 2px;
+    }
+    
+    .t-example td .operation {
+        border-collapse: collapse;
+        margin: 5px;
 
     }
+    
+    .t-example td .operation td {
+        border: solid #294270 1px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 3px;
+    }
+
+    .t-example td .operation tr:first-child td {
+        border: none;
+    }
+
+    .t-example td .operation tr:last-child td,
+    .t-example td .operation tr td.td-sum
+    {
+        border-bottom: none;
+    }
+
+    .t-example td .operation tr td:first-child {
+        border-left: none;
+    }
+
+    .t-example td .operation tr td:last-child {
+        border-right: none;
+    }
+
+
+
+    .td-header {
+        font-size: 20px;
+    }
+
+    .td-result {
+        font-size: 16px;
+    }
+
 </style>
 
 <div class="story">
@@ -50,84 +104,265 @@
 </div>
 
 <p>
-    This fragment from the book is funny. But if we look at Alice's Multiplication Table with various numbers bases,
-    then we can see the interesting regularity:
-</p>
-
-<ul>
-    <li>4 X 5 = 12 (20 in base 18)</li>
-    <li>4 X 6 = 13 (24 in base 21)</li>
-    <li>4 X 7 = 14 (28 in base 24)</li>
-    <li>4 X 8 = 15 (32 in base 27)</li>
-    <li>4 X 9 = 16 (36 in base 30)</li>
-    <li>4 X 10 = 17 (40 in base 33)</li>
-    <li>4 X 11 = 18 (44 in base 36)</li>
-    <li>4 X 12 = 19 (48 in base 39)</li>
-    <li>4 X 13 = 20 (<strong>52 in base 26</strong>)</li>
-</ul>
-<p>
-    As we can see, before we had gotten <strong>20</strong> that table had the regularity
-    (the base increased by 3 for each step).
-    So Alice was right when she said "I shall never get to twenty at that rate!".
+    After reading it our robots have decided to create own "Multiplication table".
+    This task was given to Stephan (it was a bad idea).
+    He have forgot how to do multiplication and "invented" the new method (the weird method if honestly).
 </p>
 
 <p>
-    This way we can make various Multiplication Tables.
-    We will give you the first and the second statements.
-    You should continue that regularity until it breaks and return the first "result" which breaks this sequence
-    (for first example is 20).
+    For Stephan's multiplication we should convert numbers at binary representation without trailing zeroes.
+    Then the first number is written by vertical (up to down) and the second by horizontal (left to right).
+    With it we fill the table with various binary operations for each crossing -- AND, OR, XOR. So we get the three
+    tables.
+    In each table we convert rows at decimal and summarize it, then summarize the results of three tables.
+    Let's look at several examples.
 </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">4 x 6 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>0</td><td>6</td><td rowspan="3" class="td-sum">6</td>
+
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">19</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">13</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 19 + 13 = <strong>38</strong>
+        </td>
+
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">2 x 7 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td><td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">14</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                    <td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            7 + 14 + 7 = <strong>28</strong>
+        </td>
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">7 x 2 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td><td rowspan="3" class="td-sum">6</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                    <td rowspan="3" class="td-sum">9</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 9 + 3 = <strong>18</strong>
+        </td>
+    </tr>
+</table>
+
 <p>
-    Let's look one example. The input data is two strings -- "5 X 3 = 11" and "5 X 4 = 12".
-</p>
-<ul>
-    <li>5 X 3 = 11 (15 in base 14)</li>
-    <li>5 X 4 = 12 (20 in base 18)</li>
-    <li>So we can see the regularity -- the base increases at 4.</li>
-    <li>Let's continue it.</li>
-    <li>5 X 5 = 13 (25 in base 22)</li>
-    <li>5 X 6 = 14 (30 in base 26)</li>
-    <li>5 X 7 = 15 (35 in base 30)</li>
-    <li>5 X 8 = 16 (40 in base 34)</li>
-    <li>5 X 9 = 17 (45 in base 38)</li>
-    <li>5 X 10 = 18 (50 in base 42)</li>
-    <li>5 X 11 = 19 (55 in base 46)</li>
-    <li>5 X 12 = 20 (60 in base 30)</li>
-</ul>
-
-
-<p>
-    Sum two passed ints
-</p>
-
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
-<p>
-    <strong>Input: </strong> Two arguments. Both are int
+    You should help Stephan and write a function to calculate this "multiplication".
+    You are given two positive integers (n&nbsp;>&nbsp;0), be careful with order of arguments.
 </p>
 
 <p>
-    <strong>Output: </strong> Int.
+    <strong>Input: </strong> Two arguments, positive integers.
+</p>
+
+<p>
+    <strong>Output: </strong> The result of the Stephan's "multiplication", an integer.
 </p>
 
 
 <div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
 
     <p>
         <strong>Example:</strong>
     </p>
     <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
+checkio(4, 6) == 38
+checkio(2, 7) == 28
+checkio(7, 2) == 18
     </pre>
 </div>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    In this task we want to tell about logical binary operations, because it's a basis for computer science.
 </p>
