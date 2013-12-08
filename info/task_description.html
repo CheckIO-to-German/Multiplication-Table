@@ -1,6 +1,100 @@
+<style type="text/css">
+    .story .shadow {
+        float: left;
+        /*padding: 10px;*/
+        margin: 20px;
+        border: black;
+
+        box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
+        -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);
+
+    }
+</style>
+
+<div class="story">
+    <img class="shadow" src="{{MEDIA}}alice.png" width="320px"/>
+
+    <p style="padding-top: 20px;">
+        Alice took up the fan and gloves, and, as the hall was very
+        hot, she kept fanning herself all the time she went on talking:
+        'Dear, dear! How queer everything is to-day! And yesterday
+        things went on just as usual. I wonder if I've been changed in
+        the night? Let me think: was I the same when I got up this
+        morning? I almost think I can remember feeling a little
+        different. But if I'm not the same, the next question is, Who in
+        the world am I? Ah, THAT'S the great puzzle!' And she began
+        thinking over all the children she knew that were of the same age
+        as herself, to see if she could have been changed for any of
+        them.
+    </p>
+
+    <p>
+        "I'm sure I'm not Ada," she said, "for her hair goes in such
+        long ringlets, and mine doesn't go in ringlets at all; and I'm
+        sure I can't be Mabel, for I know all sorts of things, and she,
+        oh! she knows such a very little! Besides, SHE'S she, and I'm I,
+        and--oh dear, how puzzling it all is! I'll try if I know all the
+        things I used to know. Let me see: four times five is twelve,
+        and four times six is thirteen, and four times seven is--oh dear!
+        I shall never get to twenty at that rate! However, the
+        Multiplication Table doesn't signify:...
+    </p>
+
+    <p style="float: right">
+        "Alice's Adventures in Wonderland." Lewis Carroll
+    </p>
+
+    <p style="clear: both;"></p>
+
+</div>
+
 <p>
-    <i>( Describe task in general )</i>
+    This fragment from the book is funny. But if we look at Alice's Multiplication Table with various numbers bases,
+    then we can see the interesting regularity:
 </p>
+
+<ul>
+    <li>4 X 5 = 12 (20 in base 18)</li>
+    <li>4 X 6 = 13 (24 in base 21)</li>
+    <li>4 X 7 = 14 (28 in base 24)</li>
+    <li>4 X 8 = 15 (32 in base 27)</li>
+    <li>4 X 9 = 16 (36 in base 30)</li>
+    <li>4 X 10 = 17 (40 in base 33)</li>
+    <li>4 X 11 = 18 (44 in base 36)</li>
+    <li>4 X 12 = 19 (48 in base 39)</li>
+    <li>4 X 13 = 20 (<strong>52 in base 26</strong>)</li>
+</ul>
+<p>
+    As we can see, before we had gotten <strong>20</strong> that table had the regularity
+    (the base increased by 3 for each step).
+    So Alice was right when she said "I shall never get to twenty at that rate!".
+</p>
+
+<p>
+    This way we can make various Multiplication Tables.
+    We will give you the first and the second statements.
+    You should continue that regularity until it breaks and return the first "result" which breaks this sequence
+    (for first example is 20).
+</p>
+<p>
+    Let's look one example. The input data is two strings -- "5 X 3 = 11" and "5 X 4 = 12".
+</p>
+<ul>
+    <li>5 X 3 = 11 (15 in base 14)</li>
+    <li>5 X 4 = 12 (20 in base 18)</li>
+    <li>So we can see the regularity -- the base increases at 4.</li>
+    <li>Let's continue it.</li>
+    <li>5 X 5 = 13 (25 in base 22)</li>
+    <li>5 X 6 = 14 (30 in base 26)</li>
+    <li>5 X 7 = 15 (35 in base 30)</li>
+    <li>5 X 8 = 16 (40 in base 34)</li>
+    <li>5 X 9 = 17 (45 in base 38)</li>
+    <li>5 X 10 = 18 (50 in base 42)</li>
+    <li>5 X 11 = 19 (55 in base 46)</li>
+    <li>5 X 12 = 20 (60 in base 30)</li>
+</ul>
+
 
 <p>
     Sum two passed ints
@@ -17,13 +111,13 @@
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> Int.
 </p>
-
 
 
 <div class="for_info_only">
     <p><i>( Put some usage examples )</i></p>
+
     <p>
         <strong>Example:</strong>
     </p>
