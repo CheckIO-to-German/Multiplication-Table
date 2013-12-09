@@ -75,15 +75,44 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 $content.find('.call').html('Pass: checkio(' + JSON.stringify(checkioInput) + ')');
                 $content.find('.answer').remove();
             }
-            //Dont change the code before it
 
-            //Your code here about test explanation animation
-            //$content.find(".explanation").html("Something text for example");
-            //
-            //
-            //
-            //
-            //
+            var $expl = $content.find(".explanation");
+
+            $expl.find(".td-input").html(checkioInput[0] + " X " + checkioInput[1] + " = ");
+            $expl.find(".td-result").html(explanation[0].join(" + ") + " = <strong>" + rightResult + "</strong>");
+
+            function fillTable(mark, name, data, total) {
+                var parent = $expl.find(mark);
+                var $table = $("<table></table>").addClass("table-operation");
+                var td = $("<td></td>").html(name).attr("colspan", data[0].length + 3);
+                $table.append($("<tr></tr>").append(td));
+                var tr = $("<tr></tr>");
+                tr.append($("<td></td>").html("X"));
+                for (var i = 0; i < data[0].length; i++) {
+                    tr.append($("<td></td>").html(data[0][i]));
+                }
+                tr.append($("<td></td>").html("dec"));
+                tr.append($("<td></td>").html("sum"));
+                $table.append(tr);
+                for (var j = 1; j < data.length; j++) {
+                    tr = $("<tr></tr>");
+                    for (i = 0; i < data[j].length; i++) {
+                        tr.append($("<td></td>").html(data[j][i]));
+                    }
+                    if (j == 1) {
+                        tr.append($("<td></td>").html(total).attr("rowspan", data.length - 1));
+                    }
+                    $table.append(tr);
+                }
+
+
+                parent.append($table);
+                return false;
+            }
+
+            fillTable(".td-and", "AND", explanation[1], explanation[0][0]);
+            fillTable(".td-or", "OR", explanation[2], explanation[0][1]);
+            fillTable(".td-xor", "XOR", explanation[3], explanation[0][2]);
 
 
             this_e.setAnimationHeight($content.height() + 60);
