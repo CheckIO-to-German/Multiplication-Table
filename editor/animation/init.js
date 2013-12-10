@@ -94,13 +94,13 @@ requirejs(['ext_editor_1', 'jquery_190', 'raphael_210'],
                 tr.append($("<td></td>").html("dec"));
                 tr.append($("<td></td>").html("sum"));
                 $table.append(tr);
-                for (var j = 1; j < data.length; j++) {
+                for (var j = 1; j < data.length - 1; j++) {
                     tr = $("<tr></tr>");
                     for (i = 0; i < data[j].length; i++) {
                         tr.append($("<td></td>").html(data[j][i]));
                     }
                     if (j == 1) {
-                        tr.append($("<td></td>").html(total).attr("rowspan", data.length - 1));
+                        tr.append($("<td></td>").html(total).addClass("td-bottom").attr("rowspan", data.length - 1));
                     }
                     $table.append(tr);
                 }

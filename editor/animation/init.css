@@ -83,8 +83,27 @@
     text-align: center;
     border: solid #294270 1px;
     padding: 2px;
-    text-align: center;
 }
+
+.animation-content .table-operation tr:first-child td {
+    border-top: none;
+}
+.animation-content .table-operation tr td:first-child {
+    border-left: none;
+}
+
+.animation-content .table-operation tr td:last-child {
+    border-right: none;
+}
+
+
+.animation-content .table-operation tr:last-child td,
+.animation-content .table-operation tr td.td-bottom{
+    border-bottom: none;
+}
+
+
+
 
 
 
