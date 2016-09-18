@@ -1,0 +1,380 @@
+﻿<style type="text/css">
+    .story .shadow {
+        float: left;
+        /*padding: 10px;*/
+        margin: 10px;
+        border: black;
+
+        /*box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+        /*-moz-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+        /*-webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
+    }
+
+    .t-example {
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+
+    .t-example tr:first-child td{
+        border-bottom: solid #294270 2px;
+    }
+
+    .t-example tr:last-child td {
+        border-top: solid #294270 2px;
+    }
+    
+    .t-example td .operation {
+        border-collapse: collapse;
+        margin: 5px;
+
+    }
+
+    .t-example td {
+        color: #294270;
+    }
+    
+    .t-example td .operation td {
+        border: solid #294270 1px;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 2px;
+        color: #294270;
+    }
+
+    .t-example td .operation tr:first-child td {
+        border: none;
+    }
+
+    .t-example td .operation tr:last-child td,
+    .t-example td .operation tr td.td-sum
+    {
+        border-bottom: none;
+    }
+
+    .t-example td .operation tr td:first-child {
+        border-left: none;
+    }
+
+    .t-example td .operation tr td:last-child {
+        border-right: none;
+    }
+
+
+
+    .td-header {
+        font-size: 20px;
+    }
+
+    .td-result {
+        font-size: 16px;
+    }
+
+</style>
+
+<div class="story" style="margin-bottom: 0">
+    <img class="shadow" src="{{MEDIA}}alice-sepia.png" width="320px"/>
+
+    <p style="padding-top: 20px;">
+        アリスは扇と手袋を拾いました。
+        広間は大変暑かったのでしゃべっている間、ずっとあおいでいました。:
+        「あぁ! なんておかしな一日なんでしょう!
+        昨日はまったく普通だったのに。夜の間になにかあったのかしら?
+        ちょっと考えてみよう…今朝はいつも通りだったかしら?
+        少しでも違っていれば覚えているはずだわ。
+        次に分からないのは、もし同じ私で無いとしたらここにいるのは誰なのかしら?
+        もう、なんてややこしい!」
+        彼女は自分と入れ替わったかもしれない同い年の全ての女の子について考え始めました。
+    </p>
+
+    <p>
+        「エイダじゃないわ。」彼女はいいました。
+        「だって彼女は長い巻き毛だもの。わたしは全然そうじゃないし。」
+        「メイベルでないのも確か。私は物知りだけど彼女は何にも知らないもの!」
+        それはそれとして彼女は彼女、私は私…やれやれ、さっぱりだわ!
+        私が昔知ってたことを覚えているか試してみよう。
+        えぇっと、4掛ける5は12、
+        4掛ける6は13、4掛ける7は…ちょっと! 
+        この調子だといつまで経っても20にならないじゃない!
+        でも九九なんてどうでもいいわ…
+    </p>
+
+    <p style="float: right">
+        「不思議の国のアリス」ルイス・キャロル
+    </p>
+
+    <p style="clear: both;"></p>
+
+</div>
+
+<p>
+    ロボット達は「不思議の国のアリス」を読んだあと、
+    独自の「掛け算表」を作ろうと決めた。
+    ステファンがこのミッションを主導することにした。(うむ、これはいい考えではなかった)
+    彼は掛け算の仕方を忘れたので新しいやり方を発明することにした。
+    それは率直に言ってかなり奇妙なやり方だった。
+</p>
+
+<p>
+    ステファン版の掛け算ではまず数字を2進数表現(前に0は付けない)に変換する。
+    最初の数字は縦に(上から下へ)書く。次に同様に横に(左から右)に書く。
+    そして交差する箇所を論理演算(AND, OR, XOR)の答えで埋める。
+    その結果三つの表を得る。各表で1行を10進数に変換しそれを合計する。
+    三つの表の合計が最終的な解答である。
+</p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">4 x 6 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>0</td><td>6</td><td rowspan="3" class="td-sum">6</td>
+
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">19</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">13</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>0</td><td>6</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 19 + 13 = <strong>38</strong>
+        </td>
+
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">2 x 7 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td><td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                    <td rowspan="3" class="td-sum">14</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="6">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>1</td><td>1</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                    <td rowspan="3" class="td-sum">7</td>
+                </tr>
+                <tr>
+                    <td>0</td><td>1</td><td>1</td><td>1</td><td>7</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            7 + 14 + 7 = <strong>28</strong>
+        </td>
+    </tr>
+</table>
+
+<p> </p>
+
+<table class="t-example">
+    <tr>
+        <td colspan="3" class="td-header">7 x 2 =</td>
+    </tr>
+    <tr>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">AND</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td><td rowspan="3" class="td-sum">6</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>0</td><td>2</td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">OR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>dec</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                    <td rowspan="3" class="td-sum">9</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>1</td><td>1</td><td>3</td>
+                </tr>
+
+            </table>
+        </td>
+        <td>
+            <table class="operation">
+                <tr>
+                    <td colspan="5">XOR</td>
+                </tr>
+                <tr>
+                    <td>X</td><td>1</td><td>0</td><td>sum</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                    <td rowspan="3" class="td-sum">3</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+                <tr>
+                    <td>1</td><td>0</td><td>1</td><td>1</td>
+                </tr>
+
+            </table>
+        </td>
+
+    </tr>
+    <tr>
+        <td class="td-result" colspan="3">
+            6 + 9 + 3 = <strong>18</strong>
+        </td>
+    </tr>
+</table>
+
+<p>
+    あなたはこの「掛け算」を計算する関数を書いてステファンを手助けすること。
+    あなたには2つの正の整数(n&nbsp;>&nbsp;0)が与えられる。引数の順番には気を付けること。
+</p>
+
+<p>
+    <strong>入力: </strong> 2引数。(integer型)
+</p>
+
+<p>
+    <strong>出力: </strong> ステファン版「掛け算」の答え。(integer型)
+</p>
+
+
+<div class="for_info_only">
+
+    <p>
+        <strong>例:</strong>
+    </p>
+    <pre class="brush: python">
+checkio(4, 6) == 38
+checkio(2, 7) == 28
+checkio(7, 2) == 18
+    </pre>
+</div>
+
+<p class="for_info_only">
+    <strong>どのように使われるか: </strong>
+    このタスクで我々はコンピュータサイエンスの基本である論理演算で遊んでみることになる。
+    あなたはこれを暗号化に利用する方法を思いつけるかもしれない。
+
+</p>
+
+<p>
+    <strong>事前条件:</strong>
+    0 < x < 100<br>
+    0 < y < 100<br>
+</p>
