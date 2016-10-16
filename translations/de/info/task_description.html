@@ -4,7 +4,6 @@
         /*padding: 10px;*/
         margin: 10px;
         border: black;
-
         /*box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
         /*-moz-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
         /*-webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1);*/
@@ -22,17 +21,16 @@
     .t-example tr:last-child td {
         border-top: solid #294270 2px;
     }
-    
+
     .t-example td .operation {
         border-collapse: collapse;
         margin: 5px;
-
     }
 
     .t-example td {
         color: #294270;
     }
-    
+
     .t-example td .operation td {
         border: solid #294270 1px;
         font-size: 14px;
@@ -59,8 +57,6 @@
         border-right: none;
     }
 
-
-
     .td-header {
         font-size: 20px;
     }
@@ -68,40 +64,35 @@
     .td-result {
         font-size: 16px;
     }
-
 </style>
 
 <div class="story" style="margin-bottom: 0">
     <img class="shadow" src="{{MEDIA}}alice-sepia.png" width="320px"/>
 
     <p style="padding-top: 20px;">
-        Alice took up the fan and gloves, and, as the hall was very
-        hot, she kept fanning herself all the time she went on talking:
-        'Dear, dear! How queer everything is to-day! And yesterday
-        things went on just as usual. I wonder if I've been changed in
-        the night? Let me think: was I the same when I got up this
-        morning? I almost think I can remember feeling a little
-        different. But if I'm not the same, the next question is, Who in
-        the world am I? Ah, THAT'S the great puzzle!' And she began
-        thinking over all the children she knew that were of the same age
-        as herself, to see if she could have been changed for any of
-        them.
+        Alice nahm den Fächer und die Handschuhe auf, und da der Gang sehr heiß war, fächelte
+        sie sich, während sie so zu sich selbst sprach: »Wunderbar! – wie seltsam heute Alles ist!
+        Und gestern war es ganz wie gewöhnlich. Ob ich wohl in der Nacht umgewechselt worden bin?
+        Laß mal sehen: war ich dieselbe, als ich heute früh aufstand? Es kommt mir fast vor,
+        als hätte ich wie eine Veränderung in mir gefühlt. Aber wenn ich nicht dieselbe bin,
+        dann ist die Frage: wer in aller Welt bin ich? Ja, das ist das Räthsel!« So ging sie
+        in Gedanken alle Kinder ihres Alters durch, die sie kannte, um zu sehen, ob sie in
+        eins davon verwandelt wäre.
     </p>
 
     <p>
-        "I'm sure I'm not Ada," she said, "for her hair goes in such
-        long ringlets, and mine doesn't go in ringlets at all; and I'm
-        sure I can't be Mabel, for I know all sorts of things, and she,
-        oh! she knows such a very little! Besides, SHE'S she, and I'm I,
-        and--oh dear, how puzzling it all is! I'll try if I know all the
-        things I used to know. Let me see: four times five is twelve,
-        and four times six is thirteen, and four times seven is--oh dear!
-        I shall never get to twenty at that rate! However, the
-        Multiplication Table doesn't signify:...
+        »Ich bin sicherlich nicht Ida,« sagte sie, »denn die trägt lange Locken, und mein
+        Haar ist gar nicht lockig; und bestimmt kann ich nicht Clara sein, denn ich weiß
+        eine ganze Menge, und sie, oh! sie weiß so sehr wenig! Außerdem, sie ist sie selbst,
+        und ich bin ich, und, o wie confus es Alles ist! Ich will versuchen, ob ich noch Alles
+        weiß, was ich sonst wußte. Laß sehen: vier mal fünf ist zwölf, und vier mal sechs
+        ist dreizehn, und vier mal sieben ist – o weh! auf die Art komme ich nie bis zwanzig!
+        Aber, das Einmaleins hat nicht so viel zu sagen; ...
     </p>
 
     <p style="float: right">
-        "Alice's Adventures in Wonderland." Lewis Carroll
+        "Alice's Abenteuer im Wunderland" von Lewis Carroll<br>
+        Aus dem Englischen von Antonie Zimmermann, 1869
     </p>
 
     <p style="clear: both;"></p>
@@ -109,19 +100,27 @@
 </div>
 
 <p>
-    After reading "Alice's Adventures in Wonderland,"
-    our robots decided to create their own "Multiplication table."
-    Stephan would lead this mission (yeah, that probably was a bad idea).
-    He forgot how to do multiplication and tried to invent a new method.
-    It’s a rather strange method if we may be so blunt.
+    Nach der Lektüre von "Alice im Wunderland " haben sich unsere Roboter entschieden
+    ihr eigenes Einmaleins zu erstellen.
+
+    Stephan hätte diese Mission leiten sollen. Aber das war keine so gute Idee, denn er hat
+    vergessen wie man multipliziert und erfand dafür eine eigene Methode.<br>
+    Und die ist eher seltsam, wenn wir ehrlich sind.
 </p>
 
 <p>
-    In Stephan's version of multiplication, we convert numbers to binary representation without leading zeroes.
-    Then the first number is written vertically (up to down) and the second horizontally (left to right).
-    With that, we fill a table with various binary operations for each crossing -- AND, OR, XOR, so we end up with three tables.
-    In each table we convert rows to decimal and summarize it,
-    then summarize the results of three tables. Let's look at several examples.
+    In Stephans Version der Multiplikation werden Zahlen zunächst in ihre binäre Darstellung
+    ohne führende Nullen konvertiert. Dann wird die erste Zahl vertikal geschrieben
+    (von oben nach unten) und die Zweite horizontal (von links nach rechts).
+    Damit beschriften wir je eine Wertetabelle für die binären Operationen AND, OR und XOR,
+    sodass wir am Ende drei Tabellen haben.
+    Die resultierenden Zeilen in den Wertetabellen werden dann in eine Dezimalzahl konvertiert
+    und zu einer Summe zusammengefasst.
+    Zum Schluss ergibt die Addition der Summen aus den drei Wertetabellen das Ergebnis.<br>
+</p>
+
+<p>
+    Schauen wir uns ein paar Beispiele an:
 </p>
 
 <table class="t-example">
@@ -189,13 +188,11 @@
                 </tr>
             </table>
         </td>
-
     </tr>
     <tr>
         <td class="td-result" colspan="3">
             6 + 19 + 13 = <strong>38</strong>
         </td>
-
     </tr>
 </table>
 
@@ -256,7 +253,6 @@
                 </tr>
             </table>
         </td>
-
     </tr>
     <tr>
         <td class="td-result" colspan="3">
@@ -309,7 +305,6 @@
                 <tr>
                     <td>1</td><td>1</td><td>1</td><td>3</td>
                 </tr>
-
             </table>
         </td>
         <td>
@@ -330,10 +325,8 @@
                 <tr>
                     <td>1</td><td>0</td><td>1</td><td>1</td>
                 </tr>
-
             </table>
         </td>
-
     </tr>
     <tr>
         <td class="td-result" colspan="3">
@@ -343,40 +336,40 @@
 </table>
 
 <p>
-    You should help Stephan write a function to calculate this "multiplication".
-    You are given two positive integers (n&nbsp;>&nbsp;0), be careful with order of arguments.
+    Du sollst Stephan helfen eine Funktion zu schreiben, die diese Art von "Multiplikation"
+    ausführen kann.
+    Gegeben werden zwei positive Ganzzahlen (n&nbsp;>&nbsp;0).<br>
+    <strong>Achte auf die Reihenfolge der Argumente.</strong>
 </p>
 
 <p>
-    <strong>Input: </strong> Two arguments as integers.
+    <strong>Eingabe: </strong> Zwei Argumente als Ganzzahlen.
 </p>
 
 <p>
-    <strong>Output: </strong> The result of the Stephan's "multiplication", an integer.
+    <strong>Ausgabe: </strong> Das Ergebnis der "Stephan-Multiplikation", als ganze Zahl.
 </p>
-
 
 <div class="for_info_only">
-
     <p>
-        <strong>Example:</strong>
+        <strong>Beispiele:</strong>
     </p>
     <pre class="brush: python">
-checkio(4, 6) == 38
-checkio(2, 7) == 28
-checkio(7, 2) == 18
+        checkio(4, 6) == 38
+        checkio(2, 7) == 28
+        checkio(7, 2) == 18
     </pre>
 </div>
 
 <p class="for_info_only">
-    <strong>How it is used: </strong>
-    In this task we play around with logical binary operations, the basis for computer science.
-    Maybe you can find a use for this subject in cryptography?
-
+    <strong>Wozu das gut ist:</strong><br>
+    In dieser Aufgabe spielen wir mit logischen binären Operationen - der Grundlage der
+    Informatik.<br>
+    Vielleicht findest Du dafür Verwendung in der Kryptografie?
 </p>
 
 <p>
-    <strong>Precondition:</strong>
+    <strong>Bedingungen:</strong><br>
     0 < x < 100<br>
-    0 < y < 100<br>
+    0 < y < 100
 </p>
